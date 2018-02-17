@@ -1,6 +1,12 @@
 import 'package:flutter/material.dart';
 
-void main() => runApp(new TranseeApp());
+import 'package:transee/injection/injection.dart';
+import 'package:transee/ui/choose_city/choose_city_view.dart';
+
+void main() {
+  Injector.configure(Flavor.DEFAULT);
+  runApp(new TranseeApp());
+}
 
 class TranseeApp extends StatelessWidget {
   @override
@@ -9,18 +15,7 @@ class TranseeApp extends StatelessWidget {
       title: 'Transee',
       theme: new ThemeData(
           primarySwatch: Colors.blueGrey, accentColor: Colors.lightBlue),
-      home: new HomePage(),
+      home: new ChooseCityPage(),
     );
-  }
-}
-
-class HomePage extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return new Scaffold(
-        appBar: new AppBar(
-          title: new Text("Home page"),
-        ),
-        body: new Center(child: new Text('Hello, Transee')));
   }
 }
